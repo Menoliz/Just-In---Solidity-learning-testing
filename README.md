@@ -1,9 +1,9 @@
 # gitTesting
-testing new git
+Solidity first tut
 
-pragma solidity ^0.4.0;
+    pragma solidity ^0.4.0;
 
-contract Dog{
+    contract Dog{
     
     string name;
     int age;
