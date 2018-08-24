@@ -1,0 +1,16 @@
+pragma solidity^0.4.0;
+
+import './AnimalContract.sol';
+
+contract Shelter is AnimalContract{
+    function transferAnimal(address _newOwner){
+        address owner = msg.sender;
+        uint AnimalId = ownerToAnimal[owner];
+        delete(ownerToAnimal[owner]);
+        ownerToAnimal[_newOwner] = AnimalId;
+    }
+    
+    function addAnimalToShelter(string _name, uint _age){
+        addAnimal(_name, _age);
+    }
+}
