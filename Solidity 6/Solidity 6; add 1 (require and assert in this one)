@@ -1,0 +1,18 @@
+pragma solidity^0.4.0;
+
+import './AnimalContract.sol';
+
+contract Shelter is AnimalContract{
+    function transferAnimal(address _newOwner){
+        address owner = msg.sender;
+        require (owner != _newOwner); //convenience, so we dont send the dog to ourselves
+        uint AnimalId = ownerToAnimal[owner];
+        delete(ownerToAnimal[owner]);
+        ownerToAnimal[_newOwner] = AnimalId;
+        assert(ownerToAnimal[owner] == 0); //0 makes sure the original owner does not have the animal
+    }
+    
+    function addAnimalToShelter(string _name, uint _age){
+        addAnimal(_name, _age);
+    }
+}
