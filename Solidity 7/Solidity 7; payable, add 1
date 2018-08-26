@@ -5,11 +5,11 @@ import './Events.sol';
 contract Kennel is DogContract {
     
     modifier costs(uint value){
-        require(msg.value >= value);
-        _;
+        require(msg.value >= value); //if require isn't true, then it stops there and outputs and error to console.
+        _;  //continues the code.
     }
 
-    function transferDog(address _newOwner) payable costs(100) {
+    function transferDog(address _newOwner) payable costs(100) { //it 'costs' 100 of the value for this function to execute.
         
         address owner = msg.sender;
         require(owner != _newOwner);
